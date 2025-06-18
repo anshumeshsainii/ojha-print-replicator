@@ -13,7 +13,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      <main className="pt-16">
+      <main className="pt-[72px] md:pt-[72px] sm:pt-[60px]">
         <HeroCarousel />
         <CategoryGrid />
         <FeaturedProducts />

@@ -73,25 +73,31 @@ const CategoryGrid = () => {
           </p>
         </div>
 
+        {/* Grid: 4×2 desktop, 2×4 mobile - Card dimensions: 280px × 180px */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {categories.map((category) => (
             <div
               key={category.id}
-              className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
+              className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer w-[280px] h-[180px] mx-auto"
             >
-              <div className={`bg-gradient-to-br ${category.gradient} p-8 h-48 flex flex-col items-center justify-center text-white relative`}>
-                <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                  {category.icon}
+              <div className={`bg-gradient-to-br ${category.gradient} relative w-full h-full flex flex-col items-center justify-center text-white`}>
+                {/* Gradient overlay - exact specification */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50"></div>
+                
+                <div className="relative z-10 text-center">
+                  <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                    {category.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2" style={{ textShadow: '0px 2px 4px rgba(0,0,0,0.25)' }}>
+                    {category.name}
+                  </h3>
+                  <p className="text-sm opacity-90 mb-4" style={{ textShadow: '0px 2px 4px rgba(0,0,0,0.25)' }}>
+                    {category.description}
+                  </p>
+                  <button className="bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100">
+                    Explore Now
+                  </button>
                 </div>
-                <h3 className="text-lg font-semibold text-center mb-2">
-                  {category.name}
-                </h3>
-                <p className="text-sm text-center opacity-90 mb-4">
-                  {category.description}
-                </p>
-                <button className="bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100">
-                  Explore Now
-                </button>
                 
                 {/* Decorative overlay */}
                 <div className="absolute inset-0 bg-white bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>

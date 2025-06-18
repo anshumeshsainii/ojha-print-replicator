@@ -30,24 +30,25 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
+      <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50 h-[72px] md:h-[72px] sm:h-[60px]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+          <div className="flex items-center justify-between h-full">
+            {/* Logo - exact dimensions 132px × 34px */}
             <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold text-orange-600">
+              <h1 className="text-xl md:text-2xl font-bold text-[#FF6B00] w-[132px] h-[34px] flex items-center">
                 Ojha Printing Press
               </h1>
             </div>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation - 24px spacing between items */}
             <nav className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
+              <div className="ml-10 flex items-baseline space-x-6">
                 {navigationItems.map((item) => (
                   <div key={item.name} className="relative group">
                     <a
                       href={item.href}
-                      className="text-gray-700 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors duration-200"
+                      className="text-gray-700 hover:text-[#FF6B00] px-3 py-2 text-sm font-medium transition-colors duration-200"
+                      style={{ marginRight: '24px' }}
                     >
                       {item.name}
                     </a>
@@ -58,7 +59,7 @@ const Header = () => {
                             <a
                               key={subItem}
                               href="#"
-                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600"
+                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-[#FF6B00]"
                             >
                               {subItem}
                             </a>
@@ -76,24 +77,24 @@ const Header = () => {
               {/* Search */}
               <button
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
-                className="p-2 text-gray-600 hover:text-orange-600 transition-colors duration-200"
+                className="p-2 text-gray-600 hover:text-[#FF6B00] transition-colors duration-200"
               >
                 <Search className="h-5 w-5" />
               </button>
 
               {/* Account */}
-              <button className="p-2 text-gray-600 hover:text-orange-600 transition-colors duration-200">
+              <button className="p-2 text-gray-600 hover:text-[#FF6B00] transition-colors duration-200">
                 <User className="h-5 w-5" />
               </button>
 
-              {/* Cart */}
+              {/* Cart - exact counter specifications */}
               <button
                 onClick={() => toggleCart()}
-                className="relative p-2 text-gray-600 hover:text-orange-600 transition-colors duration-200"
+                className="relative p-2 text-gray-600 hover:text-[#FF6B00] transition-colors duration-200"
               >
                 <ShoppingCart className="h-5 w-5" />
                 {cartItemCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-orange-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  <span className="absolute -top-2 -right-2 bg-[#FF6B00] text-white text-xs rounded-full w-4 h-4 flex items-center justify-center text-[10px] font-medium">
                     {cartItemCount}
                   </span>
                 )}
@@ -102,7 +103,7 @@ const Header = () => {
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="md:hidden p-2 text-gray-600 hover:text-orange-600 transition-colors duration-200"
+                className="md:hidden p-2 text-gray-600 hover:text-[#FF6B00] transition-colors duration-200"
               >
                 {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </button>
@@ -117,7 +118,7 @@ const Header = () => {
               <input
                 type="text"
                 placeholder="Search for products..."
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF6B00]"
               />
             </div>
           </div>
@@ -129,14 +130,14 @@ const Header = () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden">
           <div className="fixed left-0 top-0 bottom-0 w-64 bg-white transform transition-transform duration-300 ease-out">
             <div className="p-4 border-b">
-              <h2 className="text-lg font-semibold text-orange-600">Menu</h2>
+              <h2 className="text-lg font-semibold text-[#FF6B00]">Menu</h2>
             </div>
             <nav className="py-4">
               {navigationItems.map((item) => (
                 <div key={item.name}>
                   <a
                     href={item.href}
-                    className="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-600"
+                    className="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-[#FF6B00]"
                   >
                     {item.name}
                   </a>
@@ -146,7 +147,7 @@ const Header = () => {
                         <a
                           key={subItem}
                           href="#"
-                          className="block px-4 py-2 text-sm text-gray-600 hover:text-orange-600"
+                          className="block px-4 py-2 text-sm text-gray-600 hover:text-[#FF6B00]"
                         >
                           {subItem}
                         </a>

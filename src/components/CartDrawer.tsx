@@ -21,13 +21,13 @@ const CartDrawer = () => {
 
   return (
     <>
-      {/* Overlay */}
+      {/* Backdrop with 4px blur */}
       <div 
-        className="fixed inset-0 bg-black bg-opacity-50 z-40"
+        className="fixed inset-0 bg-black bg-opacity-50 z-40 backdrop-blur-[4px]"
         onClick={toggleCart}
       />
       
-      {/* Cart Drawer */}
+      {/* Cart Drawer - 0.3s ease-out from right */}
       <div className={`fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-xl z-50 transform transition-transform duration-300 ease-out ${
         isOpen ? 'translate-x-0' : 'translate-x-full'
       }`}>
@@ -37,7 +37,7 @@ const CartDrawer = () => {
             <h2 className="text-lg font-semibold">Shopping Cart ({items.length})</h2>
             <button
               onClick={toggleCart}
-              className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
+              className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 border border-[#E5E5E5]"
             >
               <X className="h-5 w-5" />
             </button>
@@ -50,7 +50,7 @@ const CartDrawer = () => {
                 <p>Your cart is empty</p>
                 <button
                   onClick={toggleCart}
-                  className="mt-4 text-orange-600 hover:text-orange-700 font-medium"
+                  className="mt-4 text-[#FF6B00] hover:text-[#E05B00] font-medium"
                 >
                   Continue Shopping
                 </button>
@@ -63,13 +63,14 @@ const CartDrawer = () => {
                       src={item.image}
                       alt={item.name}
                       className="w-16 h-16 object-cover rounded"
+                      style={{ aspectRatio: '1/1.25' }}
                     />
                     <div className="flex-1">
                       <h3 className="font-medium text-gray-800">{item.name}</h3>
                       {item.variant && (
                         <p className="text-sm text-gray-500">{item.variant}</p>
                       )}
-                      <p className="font-semibold text-orange-600">₹{item.price}</p>
+                      <p className="font-semibold text-[#FF6B00] text-lg" style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}>₹{item.price}</p>
                     </div>
                     <div className="flex items-center space-x-2">
                       <button
@@ -107,7 +108,7 @@ const CartDrawer = () => {
               </div>
               <button
                 onClick={handleWhatsAppCheckout}
-                className="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-lg font-medium transition-colors duration-200"
+                className="w-full bg-[#FF6B00] hover:bg-[#E05B00] text-white py-3 px-4 rounded-lg font-medium transition-colors duration-200"
               >
                 Proceed to WhatsApp Checkout
               </button>
