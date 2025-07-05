@@ -84,6 +84,30 @@ export type Database = {
         }
         Relationships: []
       }
+      user_contacts: {
+        Row: {
+          category: string
+          created_at: string
+          id: string
+          phone_number: string
+          subcategory: string | null
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          id?: string
+          phone_number: string
+          subcategory?: string | null
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          id?: string
+          phone_number?: string
+          subcategory?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
